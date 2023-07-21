@@ -20,4 +20,4 @@ O site em Django para a Landing Page do DCI irá conter as seguintes funcionalid
 
 4. **Formulário de Contato:** Um formulário de contato que permite que os visitantes enviem mensagens, tirem dúvidas ou expressem seu interesse em participar do DCI.
 
-5. **Informações sobre Membros:** Possibilidade de incluir uma área com informações sobre os membros atuais do DCI, como suas áreas de pesquisa, contatos e funções dentro da organização.
+5. **Informações sobre Membros:** Possibilidade de incluir uma área com informações sobre os membros atuais do DCI, como suas áreas de pesquisa, contatos e funções dentro da organização
