@@ -3,9 +3,7 @@
 set -o errexit
 
 poetry install
+chmod +x build.sh
 
 python manage.py collectstatic --no-input
 python manage.py migrate
-pip install --upgrade pip
-pip install --force-reinstall -U setuptools
-pip install -r requirements.txt
