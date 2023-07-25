@@ -1,5 +1,5 @@
 """
-WSGI config for dci_test project.
+WSGI config for dci project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
