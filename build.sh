@@ -2,9 +2,8 @@
 # exit on error
 set -o errexit
 
-pip install --upgrade pip
+chmod a+x build.sh
 poetry install
-chmod +x build.sh
 
 python manage.py collectstatic --no-input
 python manage.py migrate
