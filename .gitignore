@@ -55,3 +55,4 @@ coverage.xml
 
 # Sphinx document
 env/
+staticfiles/
