@@ -54,3 +54,6 @@ coverage.xml
 *.pot
 
 # Sphinx document
+env/
+staticfiles/
+landing/templates/pages/index copy.html
