@@ -3,6 +3,7 @@ gunicorn
 python-dotenv
 whitenoise
 django-theme-pixel
+django-bootstrap-v5
 
 # psycopg2-binary
 # mysqlclient
