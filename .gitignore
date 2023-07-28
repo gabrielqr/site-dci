@@ -55,4 +55,9 @@ coverage.xml
 *.log
 *.pot
 
+# Sphinx document
+env/
+staticfiles/
+landing/templates/pages/index copy.html
+
 migrations/
