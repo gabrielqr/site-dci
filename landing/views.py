@@ -2,7 +2,8 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordResetView, PasswordResetConfirmView
 from theme_pixel.forms import RegistrationForm, UserLoginForm, UserPasswordResetForm, UserPasswordChangeForm, UserSetPasswordForm
 from django.contrib.auth import logout
-
+from django.views.generic import ListView, DetailView
+from .models import Post
 
 def index(request):
     return render(request, 'pages/index.html')
@@ -114,3 +115,14 @@ def tooltips(request):
 
 def typography(request):
   return render(request, 'components/typography.html')
+
+# def index(request):
+#     return render(request, 'index.html', {})
+
+class HomeView(ListView):
+    model = Post
+    template_name = 'index.html'
+    
+class DetalhesNoticiasView(DetailView):
+    model = Post
+    template_name = 'detalhes_noticias.html'

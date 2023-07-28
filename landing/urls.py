@@ -1,6 +1,7 @@
 from django.urls import path
 from theme_pixel import views
 from django.contrib.auth import views as auth_views
+from .views import HomeView, DetalhesNoticiasView
 
 urlpatterns = [
     path('', views.index, name='index'),
@@ -49,4 +50,6 @@ urlpatterns = [
     path('tooltips/', views.tooltips, name='tooltips'),
     path('typography/', views.typography, name='typography'),
 ]
+    #path('', HomeView.as_view(), name="index"),
+    #path('noticias/<int:pk>', DetalhesNoticiasView.as_view(), name="detalhes_noticias")
 
