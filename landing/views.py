@@ -6,7 +6,9 @@ from django.views.generic import ListView, DetailView
 from .models import Post
 
 def index(request):
-    return render(request, 'pages/index.html')
+  max_posts_to_show = 5
+  latest_posts = Post.objects.order_by('-created_at')[:max_posts_to_show]
+  return render(request, 'pages/index.html')
 
 def abouts_us(request):
   return render(request, 'pages/about.html')
