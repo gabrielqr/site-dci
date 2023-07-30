@@ -5,6 +5,8 @@ from .views import HomeView, DetalhesNoticiasView
 
 urlpatterns = [
     path('', views.index, name='index'),
+    path('teste', HomeView.as_view(), name='teste'),
+    path('noticias/<int:pk>', DetalhesNoticiasView.as_view(), name="detalhes_noticias"),
     path('about-us/', views.abouts_us, name='about_us'),
     path('contact-us/', views.contact_us, name='contact_us'),
     path('landing-freelancer/', views.landing_freelancer, name='landing_freelancer'),
@@ -51,5 +53,5 @@ urlpatterns = [
     path('typography/', views.typography, name='typography'),
 ]
     #path('', HomeView.as_view(), name="index"),
-    #path('noticias/<int:pk>', DetalhesNoticiasView.as_view(), name="detalhes_noticias")
+    
 

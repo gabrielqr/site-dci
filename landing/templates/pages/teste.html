@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Hello Django on Render!</title>
+
+    <link rel="stylesheet"
+          href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+          integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk"
+          crossorigin="anonymous">
+</head>
+<body>
+<main class="container">
+    <div class="row text-center justify-content-center">
+        <div class="col">
+            <h1 class="display-4">Bem vindo ao site do DCI</h1>
+        </div>
+    </div>
+</main>
+<br/><br/>
+<div>
+<main class="posts">
+            <ul>
+            <h1>Notícias<h1><hr style="border-color: black;">
+                <br>
+            {% for post in object_list %}
+                Titulo: <a href="{% url 'detalhes_noticias' post.pk %}">{{ post.title }}</a>
+                <br>
+                <img src="{{ post.image.url }}" alt="{{ post.title }}" width="200">
+                <small>{{ post.body }}</small><br><br><hr style="border-color: black;">
+
+            {% endfor %}
+            <ul>
+                <div>
+            </main>
+</body>
+</html>
+       {% for post in latest_posts %}
+        <div>
+            <h2>{{ post.title }}</h2>
+            
+            <p>{{ post.content }}</p>
+        </div>
+        {% endfor %}
+

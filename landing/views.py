@@ -5,10 +5,6 @@ from django.contrib.auth import logout
 from django.views.generic import ListView, DetailView
 from .models import Post
 
-def index(request):
-  max_posts_to_show = 5
-  latest_posts = Post.objects.order_by('-created_at')[:max_posts_to_show]
-  return render(request, 'pages/index.html')
 
 def abouts_us(request):
   return render(request, 'pages/about.html')
@@ -122,9 +118,11 @@ def typography(request):
 #     return render(request, 'index.html', {})
 
 class HomeView(ListView):
-    model = Post
-    template_name = 'index.html'
+  max_posts_to_show = 5
+  model = Post
+  template_name = 'pages/teste.html'
+  
     
 class DetalhesNoticiasView(DetailView):
-    model = Post
-    template_name = 'detalhes_noticias.html'
+  model = Post
+  template_name = 'pages/detalhes_noticias.html'
