@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Hello Django on Render!</title>
+    <title>DCI</title>
 
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -26,38 +26,22 @@
             <ul>
             <h1>Notícias<h1><hr style="border-color: black;">
                 <br>
+                <div class="row">
             {% for post in object_list %}
-                Titulo: <a href="{% url 'detalhes_noticias' post.pk %}">{{ post.title }}</a>
-                <br>
-                <img src="{{ post.image.url }}" alt="{{ post.title }}" width="200">
-                <small>{{ post.body }}</small><br><br><hr style="border-color: black;">
-
-            {% endfor %}
-            <ul>
-                <div>
-            </main>
-            <div class="row">
                 <div class="col-5 col-sm-10 col-xl-3 mb-5 mb-lg-0">
                     <div class="card border-light">
                         <img src="media/images/wallpaperflare.com_wallpaper.jpg" class="card-img-top rounded-top" alt="image">
                         <div class="card-body">
-                            <h5 class="card-title mt-3">We partnered up with Ildiesign</h5>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary btn-sm">Read More</a>
+                            <h5 class="card-title mt-3">{{ post.title }}</h5>
+                            <p class="card-text">{{ post.body}}</p>
+                            <a href="{% url 'detalhes_noticias' post.pk %}" class="btn btn-primary btn-sm">Saiba Mais</a>
                         </div>
                     </div>
                 </div>
-                <div class="col-5 col-sm-5 col-xl-3 mb-5 mb-lg-3">
-                    <div class="card border-light">
-                        <img src="media/images/wallpaperflare.com_wallpaper.jpg" class="card-img-top rounded-top" alt="image">
-                        <div class="card-body">
-                            <h6 class="card-title mt-3">We partnered up with Ildiesign</h6>
-                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                            <a href="#" class="btn btn-primary btn-sm">Leia mais</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
+            {% endfor %}
+            <ul>
+                <div>
+            </main>
 </body>
 
 </html>
