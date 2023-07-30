@@ -4,7 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="https://kit.fontawesome.com/08f00b6356.js" crossorigin="anonymous"></script>
+    {% comment %} nao esquecer de chamar isso aqui {% endcomment %}
+    <script src="https://kit.fontawesome.com/08f00b6356.js" crossorigin="anonymous"></script> 
 
     <title>DCI</title>
 
@@ -34,17 +35,20 @@
                     <div class="card border-light">
                         <img src="{{ post.image.url }}" class="card-img-top rounded-top" alt="{{ post.title }}" height  ="200">
                         <div class="card-body">
-                            <a href="{% url 'detalhes_noticias' post.pk %}"><h3 class="card-title mt-3">{{ post.title }}</h3></a>
+                            <a href="{% url 'detalhes_noticias' post.pk %}" style="text-decoration-color: gray; color: black; font-weight: bolder;">
+                                <h3 class="card-title mt-3">{{ post.title }}</h3>
+                            </a>                                         
                             <h5 class="card-text">{{ post.body}}</h5>
                             <div class="d-flex align-items-center">
-                                <h6><i class="far fa-calendar-alt mr-1"></i>{{ post.created_at | date:"d, m, y"}}</h6>
+                                {% load humanize %}
+                                <h6><i class="far fa-calendar-alt mr-1"></i>{{ post.created_at | date:"d \d\e F \d\e Y"|default:"" }}</h6>
                             </div>
                         </div>
                     </div>
                 </div>
                 {% endif %}
             {% endfor %}
-                <div>
+            </div>
             </main>
 </body>
 
