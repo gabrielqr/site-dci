@@ -30,7 +30,7 @@
             {% for post in object_list %}
                 <div class="col-5 col-sm-10 col-xl-3 mb-5 mb-lg-0">
                     <div class="card border-light">
-                        <img src="media/images/wallpaperflare.com_wallpaper.jpg" class="card-img-top rounded-top" alt="image">
+                        <img src="{{ post.image.url }}" class="card-img-top rounded-top" alt="{{ post.title }}" width="200">
                         <div class="card-body">
                             <h5 class="card-title mt-3">{{ post.title }}</h5>
                             <p class="card-text">{{ post.body}}</p>
@@ -39,7 +39,6 @@
                     </div>
                 </div>
             {% endfor %}
-            <ul>
                 <div>
             </main>
 </body>
