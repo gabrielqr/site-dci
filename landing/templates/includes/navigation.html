@@ -48,26 +48,6 @@
                                       </li>
                                   </ul>
                               </div>
-                              <div class="col-6 col-lg-4">
-                                  <h6 class="d-block mb-3 text-primary">User</h6>
-                                  <ul class="list-style-none mb-4">
-                                    {% if request.user.is_authenticated %}
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="{% url 'password_change' %}">Change Password</a>
-                                        </li>
-                                        <li class="mb-2 megamenu-item">
-                                            <a class="megamenu-link" href="{% url 'logout' %}">Logout</a>
-                                        </li>
-                                    {% else %}
-                                      <li class="mb-2 megamenu-item">
-                                          <a class="megamenu-link" href="{% url 'login' %}">Sign in</a>
-                                      </li>
-                                      <li class="mb-2 megamenu-item">
-                                          <a class="megamenu-link" href="{% url 'register' %}">Sign up</a>
-                                      </li>
-                                    {% endif %}
-                                  </ul>
-                              </div>
                           </div>
                       </div>
                   </li>
