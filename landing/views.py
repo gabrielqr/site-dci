@@ -118,9 +118,14 @@ def typography(request):
 #     return render(request, 'index.html', {})
 
 class HomeView(ListView):
-  max_posts_to_show = 5
+  max_posts_to_show = 6
   model = Post
   template_name = 'pages/teste.html'
+  
+  def get_context_data(self, **kwargs):
+    context = super().get_context_data(**kwargs)
+    context['max_posts_to_show'] = 6
+    return context
   
     
 class DetalhesNoticiasView(DetailView):

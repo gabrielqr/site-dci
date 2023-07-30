@@ -28,16 +28,17 @@
                 <br>
                 <div class="row">
             {% for post in object_list %}
-                <div class="col-5 col-sm-10 col-xl-3 mb-5 mb-lg-0">
+                {% if forloop.counter <= max_posts_to_show %}
+                <div class="col-10 col-sm-10 col-xl-4 mb-5 mb-lg-0">
                     <div class="card border-light">
-                        <img src="{{ post.image.url }}" class="card-img-top rounded-top" alt="{{ post.title }}" width="200">
+                        <img src="{{ post.image.url }}" class="card-img-top rounded-top" alt="{{ post.title }}" height  ="200">
                         <div class="card-body">
-                            <h5 class="card-title mt-3">{{ post.title }}</h5>
-                            <p class="card-text">{{ post.body}}</p>
-                            <a href="{% url 'detalhes_noticias' post.pk %}" class="btn btn-primary btn-sm">Saiba Mais</a>
+                            <a href="{% url 'detalhes_noticias' post.pk %}"><h3 class="card-title mt-3">{{ post.title }}</h3></a>
+                            <h5 class="card-text">{{ post.body}}</h5>
                         </div>
                     </div>
                 </div>
+                {% endif %}
             {% endfor %}
                 <div>
             </main>
