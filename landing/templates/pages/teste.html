@@ -5,9 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     {% comment %} nao esquecer de chamar isso aqui {% endcomment %}
-    <script src="https://kit.fontawesome.com/08f00b6356.js" crossorigin="anonymous"></script> 
+    <script src="https://kit.fontawesome.com/08f00b6356.js" crossorigin="anonymous"></script>
+
 
     <title>DCI</title>
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}"> 
 
     <link rel="stylesheet"
           href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
@@ -28,18 +31,18 @@
             <ul>
             <h1>Notícias<h1><hr style="border-color: black;">
                 <br>
-                <div class="row">
+                <div class="row ml-lg-5 mr-lg-5 mb-lg-2 ">
             {% for post in object_list %}
                 {% if forloop.counter <= max_posts_to_show %}
-                <div class="col-10 col-sm-10 col-xl-4 mb-5 mb-lg-0">
+                <div class="col-10 col-sm-10 col-xl-2 mb-5 mb-lg-2 ml-2 mr-2">
                     <div class="card border-light">
-                        <img src="{{ post.image.url }}" class="card-img-top rounded-top" alt="{{ post.title }}" height  ="200">
+                        <img src="{{ post.image.url }}" class="card-img-top custom-rounded-card mb-0" alt="{{ post.title }}" height ="150">
                         <div class="card-body">
-                            <a href="{% url 'detalhes_noticias' post.pk %}" style="text-decoration-color: gray; color: black; font-weight: bolder;">
-                                <h3 class="card-title mt-3">{{ post.title }}</h3>
+                            <a href="{% url 'detalhes_noticias' post.pk %}" class="custom-card-title">
+                                <h4 class="card-title">{{ post.title }}</h4>
                             </a>                                         
-                            <h5 class="card-text">{{ post.body}}</h5>
-                            <div class="d-flex align-items-center">
+                            <h6><class="card-text">{{ post.body }}</h6>
+                            <div class="d-flex align-items-start">
                                 {% load humanize %}
                                 <h6><i class="far fa-calendar-alt mr-1"></i>{{ post.created_at | date:"d \d\e F \d\e Y"|default:"" }}</h6>
                             </div>
