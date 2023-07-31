@@ -9,10 +9,12 @@
         <section class="section section-header pb-11 bg-primary text-white">
             <div class="container">
                 <div class="row justify-content-center">
+
                     <div class="col-12 col-xl-8 text-center">
                         <h1 class="display-2 mb-3">Fale com o DCI</h1>
                         <p class="lead">(Aqui um subtítulo)</p>        
                     </div>
+                
                 </div>
             </div>
         </section>
@@ -68,14 +70,22 @@
                                     </div>
                                     <!-- End of Form -->
 
-                                    <div id="successMessage" style="display: none;">
-                                        <p>Seu formulário foi enviado com sucesso!</p>
-                                    </div>
-
-
                                     <div class="d-grid">
                                         <button type="submit" class="btn rounded btn-secondary">Enviar</button>
                                     </div>
+                                    <br>
+                                    <div id="successMessage" class="alert alert-success" role="alert" style="display: none;">
+                                        <div class="alert-icon">
+                                            <span class="fas fa-bell"></span>
+                                        </div>
+                                        <h4 class="alert-heading">Mensagem enviada!</h4>
+                                        <p>Pronto, sua mensagem foi enviada e em breve estaremos retornando para o e-mail preenchido.</p>
+                                        <hr>
+                                        <p class="mb-0">Fique à vontade para enviar uma nova mensagem.</p>
+                                        <p class="mb-0">(Assinatura DCI)</p>
+                                    </div>
+                                    
+
                                 </form>
                             </div>
                         </div>
@@ -85,6 +95,41 @@
             </div>
         </div>
     </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Intercepta o envio do formulário
+            $("#contactForm").submit(function (event) {
+              // Evita que o formulário seja enviado normalmente
+              event.preventDefault();
+          
+              // Serialize the form data
+              var formData = $(this).serialize();
+          
+              // Submit the form using AJAX
+              $.ajax({
+                url: "{% url 'contact_us' %}",
+                type: "POST",
+                data: formData,
+                success: function (response) {
+                  // Display the success message
+                  $("#successMessage").show();
+          
+                  // Optionally, hide the form after success (uncomment the line below)
+                  // $("#contactForm").hide();
+          
+                  // Reset the form fields
+                  $("#contactForm")[0].reset();
+                },
+                error: function (error) {
+                  // Handle the error response if needed
+                  console.log(error);
+                }
+              });
+            });
+          });
+    </script>
     
 
     {% endblock content %}
