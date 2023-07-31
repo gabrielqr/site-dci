@@ -17,6 +17,11 @@ def abouts_us(request):
   return render(request, 'pages/about.html')
 
 def contact_us(request):
+  if request.method == 'POST':
+    name = request.POST.get('name', '')
+    email = request.POST.get('email', '')
+    subject = request.POST.get('subject', '')
+    message = request.POST.get('message', '')
   return render(request, 'pages/contact.html')
 
 def landing_freelancer(request):
