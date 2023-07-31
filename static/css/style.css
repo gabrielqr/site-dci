@@ -1,0 +1,25 @@
+/* Arredondamento personalizado */
+.custom-rounded-card {
+    border-radius: 1000px 6px 0 0; /* Valor pode ser ajustado para controlar o arredondamento */
+}
+
+/* Arredondamento personalizado apenas no topo */
+.custom-rounded-top {
+    border-radius: 20px 20px 0 0; /* Os valores podem ser ajustados para controlar o arredondamento em cada canto */
+}
+
+.card-img-top:hover {
+    transform: scale(1.1);
+    background-position: -60px;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  }
+
+.custom-card-title {
+    font-weight: 600;
+    color: rgb(88, 87, 87);
+    padding: 0px;
+  }
+
+.custom-card-title:hover {
+    cursor: pointer;
+  }
