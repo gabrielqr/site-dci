@@ -33,14 +33,14 @@
                         <div class="card border-0 p-2 p-md-3 p-lg-5">
                             
                             <div class="card-body px-0 pt-0">
-                                <form action="{% url 'contact_us' %}" method="post">
+                                <form action="{% url 'contact_us' %}" method="POST" id="contactForm">
                                     {% csrf_token %}
                                     <!-- Form -->
                                     <div class="mb-4">
                                         <label for="name">Seu Nome</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon3"><span class="fas fa-user-circle"></span></span>
-                                            <input type="text" class="form-control" placeholder="Ex: Prazer Gabriel " id='name' required>
+                                            <input type="text" class="form-control" placeholder="Ex: Prazer Gabriel " id="name" name = "name" required>
                                         </div>
                                     </div>
                                     <!-- End of Form -->
@@ -49,15 +49,30 @@
                                         <label for="email">Seu E-mail</label>
                                         <div class="input-group">
                                             <span class="input-group-text" id="basic-addon4"><span class="fas fa-envelope"></span></span>
-                                            <input type="email" class="form-control" placeholder="exemplo@email.com" id='email' required>
+                                            <input type="email" class="form-control" placeholder="exemplo@email.com" id="email" name = "email" required>
+                                        </div>
+                                    </div>
+                                    <!-- End of Form -->
+                                    <!-- Form -->
+                                    <div class="mb-4">
+                                        <label for="email">Assunto</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon4"><span class="fas fa-comment"></span></span>
+                                            <input type="text" class="form-control" placeholder="Insira o assunto aqui" id="subject" name = "subject" required>
                                         </div>
                                     </div>
                                     <!-- End of Form -->
                                     <div class="mb-4">
                                         <label for="message">Sua Mensagem</label>
-                                        <textarea placeholder="Escreva aqui sua mensagem..." class="form-control" id='message' rows="4" required></textarea>
+                                        <textarea placeholder="Escreva aqui sua mensagem..." class="form-control" id="message" name = "message" rows="4" required></textarea>
                                     </div>
                                     <!-- End of Form -->
+
+                                    <div id="successMessage" style="display: none;">
+                                        <p>Seu formulário foi enviado com sucesso!</p>
+                                    </div>
+
+
                                     <div class="d-grid">
                                         <button type="submit" class="btn rounded btn-secondary">Enviar</button>
                                     </div>
@@ -70,8 +85,10 @@
             </div>
         </div>
     </main>
+    
 
     {% endblock content %}
+    
 
 
 # adicionar um alerta para mensagem enviada
