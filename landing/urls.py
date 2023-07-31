@@ -9,7 +9,6 @@ urlpatterns = [
     path('about-us/', views.abouts_us, name='about_us'),
     ##path('contact-us/', views.contact_us, name='contact_us'),
     path('contact/', views.contact_us, name='contact_us'),
-    path('contact/confirmation/', views.contact_confirmation, name='contact_confirmation'),
     path('landing-freelancer/', views.landing_freelancer, name='landing_freelancer'),
     path('blank/', views.blank_page, name='blank'),
     
