@@ -6,7 +6,7 @@ from theme_pixel.forms import RegistrationForm, UserLoginForm, UserPasswordReset
 from django.contrib.auth import logout
 from django.views.generic import ListView, DetailView
 from django.contrib import messages
-from .models import Post
+from .models import Post, MensagemContato
 import smtplib
 
 
@@ -22,9 +22,10 @@ def contact_us(request):
     email = request.POST.get('email', '')
     subject = request.POST.get('subject', '')
     message = request.POST.get('message', '')
-    assunto = f'{subject}'
-    corpo = f'Nome: {name} \n\n E-mail do remetente: {email}\n\nMensagem:\n{message}'
-    send_mail(assunto, corpo, settings.EMAIL_HOST_USER, ['q_maluquice@hotmail.com'], fail_silently=False)
+   
+    mensagem_contato = MensagemContato(nome=name, email=email, assunto=subject, mensagem=message)
+    mensagem_contato.save()
+    
   return render(request, 'pages/contact.html')
 
 def landing_freelancer(request):
