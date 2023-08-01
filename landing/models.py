@@ -4,8 +4,10 @@ from datetime import datetime, date
 
 class Post(models.Model):
     title = models.CharField(max_length=255)
-    body = models.TextField()
+    resumo = models.CharField
+    body = models.
     image = models.ImageField(null=True, blank= True, upload_to='images/')
+    imagem_noticia = models.ImageField(null=True, blank= True, upload_to='images/')
     created_at = models.DateTimeField(auto_now_add=True)
     
     def __str__(self):

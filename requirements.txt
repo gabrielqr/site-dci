@@ -5,6 +5,7 @@ whitenoise
 django-theme-pixel
 django-bootstrap-v5
 Pillow
+django-tinymce
 
 # psycopg2-binary
 # mysqlclient
