@@ -35,9 +35,6 @@
                                       <li class="mb-2 megamenu-item">
                                           <a class="megamenu-link" href="{% url 'about_us' %}">About</a>
                                       </li>
-                                      <li class="mb-2 megamenu-item">
-                                          <a class="megamenu-link" href="{% url 'contact_us' %}">Contact</a>
-                                      </li>
                                   </ul>
                               </div>
                               <div class="col-6 col-lg-4">
@@ -105,11 +102,11 @@
                       <div class="dropdown-menu dropdown-menu-lg" aria-labelledby="supportDropdown">
                           <div class="col-auto px-0">
                               <div class="list-group list-group-flush">
-                                  <a href="https://appseed.us/support/" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4">
+                                  <a href="{% url 'contact_us' %}" target="_blank" class="list-group-item list-group-item-action d-flex align-items-center p-0 py-3 px-lg-4">
                                       <span class="icon icon-sm"><span class="fas fa-microphone-alt"></span></span>
                                       <div class="ms-4">
-                                          <span class="d-block font-small fw-bold mb-0">Support</span>
-                                          <span class="small">Need help? Ask us!</span>
+                                          <span class="d-block font-small fw-bold mb-0">Fale Conosco</span>
+                                          <span class="small">Precisando de ajuda? Clique aqui.</span>
                                       </div>
                                   </a>
                               </div>
