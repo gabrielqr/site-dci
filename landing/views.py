@@ -1,9 +1,14 @@
 from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.conf import settings
 from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordResetView, PasswordResetConfirmView
 from theme_pixel.forms import RegistrationForm, UserLoginForm, UserPasswordResetForm, UserPasswordChangeForm, UserSetPasswordForm
 from django.contrib.auth import logout
 from django.views.generic import ListView, DetailView
+from django.contrib import messages
 from .models import Post
+import smtplib
+
 
 def index(request):
     return render(request, 'pages/index.html')
@@ -12,6 +17,14 @@ def abouts_us(request):
   return render(request, 'pages/about.html')
 
 def contact_us(request):
+  if request.method == 'POST':
+    name = request.POST.get('name', '')
+    email = request.POST.get('email', '')
+    subject = request.POST.get('subject', '')
+    message = request.POST.get('message', '')
+    assunto = f'{subject}'
+    corpo = f'Nome: {name} \n\n E-mail do remetente: {email}\n\nMensagem:\n{message}'
+    send_mail(assunto, corpo, settings.EMAIL_HOST_USER, ['q_maluquice@hotmail.com'], fail_silently=False)
   return render(request, 'pages/contact.html')
 
 def landing_freelancer(request):

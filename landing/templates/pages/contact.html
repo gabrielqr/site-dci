@@ -1,0 +1,139 @@
+<title>Contato</title>
+{% extends 'layouts/base.html' %}
+{% load static %}
+
+{% block content %}
+    <main>
+
+        <!-- Hero -->
+        <section class="section section-header pb-11 bg-primary text-white">
+            <div class="container">
+                <div class="row justify-content-center">
+
+                    <div class="col-12 col-xl-8 text-center">
+                        <h1 class="display-2 mb-3">Fale com o DCI</h1>
+                        <p class="lead">(Aqui um subtítulo)</p>        
+                    </div>
+                
+                </div>
+            </div>
+        </section>
+        <!-- Section -->
+        <div class="section py-0">
+            <div class="container mt-n10">
+                <div class="row">
+                    
+                </div>
+            </div>
+        </div>
+        <!-- Section -->
+        <section class="section section-lg pt-6">
+            <div class="container">
+                <div class="row justify-content-center mb-5 mb-lg-6">
+                    <div class="col-12 col-lg-8">
+                        <!-- Contact Card -->
+                        <div class="card border-0 p-2 p-md-3 p-lg-5">
+                            
+                            <div class="card-body px-0 pt-0">
+                                <form action="{% url 'contact_us' %}" method="POST" id="contactForm">
+                                    {% csrf_token %}
+                                    <!-- Form -->
+                                    <div class="mb-4">
+                                        <label for="name">Seu Nome</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon3"><span class="fas fa-user-circle"></span></span>
+                                            <input type="text" class="form-control" placeholder="Ex: Prazer Gabriel " id="name" name = "name" required>
+                                        </div>
+                                    </div>
+                                    <!-- End of Form -->
+                                    <!-- Form -->
+                                    <div class="mb-4">
+                                        <label for="email">Seu E-mail</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon4"><span class="fas fa-envelope"></span></span>
+                                            <input type="email" class="form-control" placeholder="exemplo@email.com" id="email" name = "email" required>
+                                        </div>
+                                    </div>
+                                    <!-- End of Form -->
+                                    <!-- Form -->
+                                    <div class="mb-4">
+                                        <label for="email">Assunto</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text" id="basic-addon4"><span class="fas fa-comment"></span></span>
+                                            <input type="text" class="form-control" placeholder="Insira o assunto aqui" id="subject" name = "subject" required>
+                                        </div>
+                                    </div>
+                                    <!-- End of Form -->
+                                    <div class="mb-4">
+                                        <label for="message">Sua Mensagem</label>
+                                        <textarea placeholder="Escreva aqui sua mensagem..." class="form-control" id="message" name = "message" rows="4" required></textarea>
+                                    </div>
+                                    <!-- End of Form -->
+
+                                    <div class="d-grid">
+                                        <button type="submit" class="btn rounded btn-secondary">Enviar</button>
+                                    </div>
+                                    <br>
+                                    <div id="successMessage" class="alert alert-success" role="alert" style="display: none;">
+                                        <div class="alert-icon">
+                                            <span class="fas fa-bell"></span>
+                                        </div>
+                                        <h4 class="alert-heading">Mensagem enviada!</h4>
+                                        <p>Pronto, sua mensagem foi enviada e em breve estaremos retornando para o e-mail preenchido.</p>
+                                        <hr>
+                                        <p class="mb-0">Fique à vontade para enviar uma nova mensagem.</p>
+                                        <p class="mb-0">(Assinatura DCI)</p>
+                                    </div>
+                                    
+
+                                </form>
+                            </div>
+                        </div>
+                        <!-- End of Contact Card -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Intercepta o envio do formulário
+            $("#contactForm").submit(function (event) {
+              // Evita que o formulário seja enviado normalmente
+              event.preventDefault();
+          
+              // Serialize the form data
+              var formData = $(this).serialize();
+          
+              // Submit the form using AJAX
+              $.ajax({
+                url: "{% url 'contact_us' %}",
+                type: "POST",
+                data: formData,
+                success: function (response) {
+                  // Display the success message
+                  $("#successMessage").show();
+          
+                  // Optionally, hide the form after success (uncomment the line below)
+                  // $("#contactForm").hide();
+          
+                  // Reset the form fields
+                  $("#contactForm")[0].reset();
+                },
+                error: function (error) {
+                  // Handle the error response if needed
+                  console.log(error);
+                }
+              });
+            });
+          });
+    </script>
+    
+
+    {% endblock content %}
+    
+
+
+# adicionar um alerta para mensagem enviada
