@@ -33,7 +33,7 @@
                                 <div class="col-12 col-md-6 col-lg-3 mb-5 mb-lg-3">
                                     <a href="{% url 'detalhes_noticias' post.pk %}" class="card-link">
                                         <div class="card shadow border-light">
-                                            <img src="{{ post.image.url }}" class="card-img-top custom-rounded-card mb-0" alt="{{ post.title }}" height="200">
+                                            <img src="{{ post.image.url }}" class="card-image custom-rounded-card mb-0" alt="{{ post.title }}" height="200">
                                             <div class="card-body">
                                                 <h4 class="card-title">{{ post.title }}</h4>
                                                 <h6>{{ post.body }}</h6>
