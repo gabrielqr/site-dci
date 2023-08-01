@@ -118,7 +118,6 @@ def typography(request):
 #     return render(request, 'index.html', {})
 
 class HomeView(ListView):
-  max_posts_to_show = 6
   model = Post
   ordering = ['-created_at']
   template_name = 'pages/teste.html'
@@ -126,7 +125,7 @@ class HomeView(ListView):
   def get_context_data(self, **kwargs):
     noticias = Post.objects.all().order_by('-created_at')
     context = super().get_context_data(**kwargs)
-    context['max_posts_to_show'] = 6
+    context['max_posts_to_show'] = 4
     return context
   
     
