@@ -31,6 +31,9 @@ def contact_us(request):
 def landing_freelancer(request):
   return render(request, 'pages/landing-freelancer.html')
 
+def handler404(request, exception):
+  return render(request, '404.html')
+
 def blank_page(request):
   return render(request, 'pages/blank.html')
 
