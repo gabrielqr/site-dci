@@ -146,8 +146,8 @@ def tooltips(request):
 def typography(request):
   return render(request, 'components/typography.html')
 
-# def index(request):
-#     return render(request, 'index.html', {})
+def index(request):
+     return render(request, 'index.html', {})
 
 class HomeView(ListView):
   model = Post
