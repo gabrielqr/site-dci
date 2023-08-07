@@ -4,6 +4,8 @@ python-dotenv
 whitenoise
 django-theme-pixel
 django-bootstrap-v5
+Pillow
+django-ckeditor
 
 # psycopg2-binary
 # mysqlclient

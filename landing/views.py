@@ -10,8 +10,21 @@ from .models import Post, MensagemContato
 import smtplib
 
 
-def index(request):
-    return render(request, 'pages/index.html')
+#imports para pagination
+from django.core.paginator import Paginator
+
+def todas_noticias(request):
+  lista_noticias = Post.objects.all()
+  
+  #setup Pagination
+  noticias_por_pagina = 6
+  p = Paginator(Post.objects.all().order_by('-created_at'), noticias_por_pagina)
+  page = request.GET.get('page')
+  qtd_paginas = p.get_page(page)
+  
+  return render(request, 'pages/todas_noticias.html', 
+                {'lista_noticias' : lista_noticias,
+                 'qtd_paginas' : qtd_paginas})
 
 def abouts_us(request):
   return render(request, 'pages/about.html')
@@ -137,9 +150,17 @@ def typography(request):
 #     return render(request, 'index.html', {})
 
 class HomeView(ListView):
-    model = Post
-    template_name = 'index.html'
+  model = Post
+  ordering = ['-created_at']
+  template_name = 'pages/teste.html'
+  
+  def get_context_data(self, **kwargs):
+    noticias = Post.objects.all().order_by('-created_at')
+    context = super().get_context_data(**kwargs)
+    context['max_posts_to_show'] = 4
+    return context
+  
     
 class DetalhesNoticiasView(DetailView):
-    model = Post
-    template_name = 'detalhes_noticias.html'
+  model = Post
+  template_name = 'pages/detalhes_noticias.html'
