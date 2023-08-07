@@ -2,10 +2,12 @@ from django.urls import path
 from theme_pixel import views
 from django.contrib.auth import views as auth_views
 from .views import HomeView, DetalhesNoticiasView
+from landing import views as landingviews
 
 urlpatterns = [
     path('', views.index, name='index'),
     path('teste', HomeView.as_view(), name='teste'),
+    path('todas_noticias', landingviews.todas_noticias, name="todas_noticias"),
     path('noticias/<int:pk>', DetalhesNoticiasView.as_view(), name="detalhes_noticias"),
     path('about-us/', views.abouts_us, name='about_us'),
     path('contact-us/', views.contact_us, name='contact_us'),
