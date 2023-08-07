@@ -1,9 +1,14 @@
 from django.shortcuts import render, redirect
+from django.core.mail import send_mail
+from django.conf import settings
 from django.contrib.auth.views import LoginView, PasswordChangeView, PasswordResetView, PasswordResetConfirmView
 from theme_pixel.forms import RegistrationForm, UserLoginForm, UserPasswordResetForm, UserPasswordChangeForm, UserSetPasswordForm
 from django.contrib.auth import logout
 from django.views.generic import ListView, DetailView
-from .models import Post
+from django.contrib import messages
+from .models import Post, MensagemContato
+import smtplib
+
 
 #imports para pagination
 from django.core.paginator import Paginator
@@ -25,10 +30,22 @@ def abouts_us(request):
   return render(request, 'pages/about.html')
 
 def contact_us(request):
+  if request.method == 'POST':
+    name = request.POST.get('name', '')
+    email = request.POST.get('email', '')
+    subject = request.POST.get('subject', '')
+    message = request.POST.get('message', '')
+   
+    mensagem_contato = MensagemContato(nome=name, email=email, assunto=subject, mensagem=message)
+    mensagem_contato.save()
+    
   return render(request, 'pages/contact.html')
 
 def landing_freelancer(request):
   return render(request, 'pages/landing-freelancer.html')
+
+def handler404(request, exception):
+  return render(request, '404.html')
 
 def blank_page(request):
   return render(request, 'pages/blank.html')
