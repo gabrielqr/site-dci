@@ -2,7 +2,7 @@ from django.urls import path
 from theme_pixel import views
 from django.conf.urls import handler404
 from django.contrib.auth import views as auth_views
-from .views import HomeView, DetalhesNoticiasView
+from .views import DetalhesNoticiasView
 from landing import views as landingviews
 
 handler404 = landingviews.handler404
@@ -57,6 +57,6 @@ urlpatterns = [
     path('tooltips/', views.tooltips, name='tooltips'),
     path('typography/', views.typography, name='typography'),
 ]
-    #path('', HomeView.as_view(), name="index"),
+    #
     
 

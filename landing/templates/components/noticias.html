@@ -19,36 +19,33 @@
     <div class="section section-sm pb-0 mb-4">
         <div class="container">
           <div class="row justify-content-center">
-            <h2 class="nolink"><a href="/todas_noticias">Últimas Notícias <i class="bi bi-chevron-compact-right"></i></h2></a>
+            <h2 class="text-center"><a href="/todas_noticias">Últimas Notícias <i class="bi bi-chevron-compact-right"></i></h2></a>
           </div>
         </div>
     </div>
-                <div class="section section-md">
-                    <div class="container">
-                        <div class="row ml-lg-6 mr-lg-6 mb-lg-2">
-                            {% for post in object_list %}
-                                {% if forloop.counter <= max_posts_to_show and post.publicar %}
-                                <div class="col-12 col-md-6 col-lg-3 mb-5 mb-lg-3">
-                                    <a href="{% url 'detalhes_noticias' post.pk %}" class="card-link">
-                                        <div class="card shadow border-light">
-                                            <img src="{{ post.thumbnail.url }}" class="card-image custom-rounded-card mb-0" alt="{{ post.title }}" height="150">
-                                            <div class="card-body">
-                                                <h4 class="card-title">{{ post.title }}</h4>
-                                                <p><em>{{ post.resumo }}</em></p>
-                                                <div class="d-flex align-items-start">
-                                                    {% load humanize %}
-                                                    <h6><i class="far fa-calendar-alt mr-1"></i>{{ post.created_at | date:"d \d\e F \d\e Y" }}</h6>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </a>
+    <div class="container">
+        <div class="row ml-lg-6 mr-lg-6 mb-lg-2">
+            {% for post in object_list %}
+                {% if forloop.counter <= max_posts_to_show and post.publicar %}
+                <div class="col-12 col-md-6 col-lg-3 mb-5 mb-lg-3">
+                    <a href="{% url 'detalhes_noticias' post.pk %}" class="card-link">
+                        <div class="card shadow border-light">
+                            <img src="{{ post.thumbnail.url }}" class="card-image custom-rounded-card mb-0" alt="{{ post.title }}" height="150">
+                            <div class="card-body">
+                                <h4 class="card-title">{{ post.title }}</h4>
+                                <p><em>{{ post.resumo }}</em></p>
+                                <div class="d-flex align-items-start">
+                                    {% load humanize %}
+                                    <h6><i class="far fa-calendar-alt mr-1"></i>{{ post.created_at | date:"d \d\e F \d\e Y" }}</h6>
                                 </div>
-                                {% endif %}
-                            {% endfor %}
+                            </div>
                         </div>
-                    </div>
-                </div>                 
-            </main>
+                    </a>
+                </div>
+                {% endif %}
+            {% endfor %}
+        </div>
+    </div>              
 </body>
 </html>
 
