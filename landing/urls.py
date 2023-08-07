@@ -56,7 +56,8 @@ urlpatterns = [
     path('toasts/', views.toasts, name='toasts'),
     path('tooltips/', views.tooltips, name='tooltips'),
     path('typography/', views.typography, name='typography'),
+    path('noticias/', HomeView.as_view(), name="noticias"),
 ]
-    #path('', HomeView.as_view(), name="index"),
+    #
     
 
