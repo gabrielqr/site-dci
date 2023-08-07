@@ -13,9 +13,7 @@ import smtplib
 #imports para pagination
 from django.core.paginator import Paginator
 
-def todas_noticias(request):
-  lista_noticias = Post.objects.all()
-  
+def todas_noticias(request):  
   #setup Pagination
   noticias_por_pagina = 6
   p = Paginator(Post.objects.all().order_by('-created_at'), noticias_por_pagina)
@@ -147,12 +145,12 @@ def typography(request):
   return render(request, 'components/typography.html')
 
 def index(request):
-     return render(request, 'index.html', {})
+     return render(request, 'pages/index.html', {})
 
 class HomeView(ListView):
   model = Post
   ordering = ['-created_at']
-  template_name = 'pages/teste.html'
+  template_name = 'components/noticias.html'
   
   def get_context_data(self, **kwargs):
     noticias = Post.objects.all().order_by('-created_at')
