@@ -13,7 +13,9 @@ import smtplib
 #imports para pagination
 from django.core.paginator import Paginator
 
-def todas_noticias(request):  
+def todas_noticias(request): 
+  lista_noticias = Post.objects.all().order_by('-created_at')
+   
   #setup Pagination
   noticias_por_pagina = 6
   p = Paginator(Post.objects.all().order_by('-created_at'), noticias_por_pagina)
@@ -145,20 +147,27 @@ def typography(request):
   return render(request, 'components/typography.html')
 
 def index(request):
-     return render(request, 'pages/index.html', {})
+    object_list = Post.objects.all().order_by('-created_at')
+    max_posts_to_show = 4
 
-class HomeView(ListView):
-  model = Post
-  ordering = ['-created_at']
-  template_name = 'components/noticias.html'
+    context = {
+        'object_list': object_list,
+        'max_posts_to_show': max_posts_to_show,
+    }
+
+    return render(request, 'pages/index.html', context)
+
+# essa homeview nao eh mais necessaria
+# class HomeView(ListView):
+#   model = Post
+#   ordering = ['-created_at']
+#   template_name = 'pages/index.html'
   
-  def get_context_data(self, **kwargs):
-    noticias = Post.objects.all().order_by('-created_at')
-    context = super().get_context_data(**kwargs)
-    context['max_posts_to_show'] = 4
-    return context
+#   def get_context_data(self, **kwargs):
+#     context = super().get_context_data(**kwargs)
+#     context['max_posts_to_show'] = 4
+#     return context
   
-    
 class DetalhesNoticiasView(DetailView):
   model = Post
   template_name = 'pages/detalhes_noticias.html'
