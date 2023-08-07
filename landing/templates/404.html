@@ -1,0 +1,22 @@
+
+<title>Página não encontrada</title>
+{% extends 'layouts/base.html' %}
+{%load static%}
+
+
+{% block content %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 col-lg-8 mb-lg-5 mt-lg-8">
+                <div class="alert alert-warning" role="alert">
+                    <span class="alert-inner--icon"><i class="fas fa-exclamation-circle"></i></span>
+                    <h5 class="alert-heading">404 Ops! Página não encontrada.</h5>
+                    <p>A página que você está procurando não foi encontrada.</p>
+                    <hr>
+                    <p class="mb-0">Clique <a href="{% url 'index'%}" style="color: blue; text-decoration: underline; ">aqui</a> para retornar para a página principal.</p>
+                </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

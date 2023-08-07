@@ -1,8 +1,11 @@
 from django.urls import path
 from theme_pixel import views
 from landing import views
+from django.conf.urls import handler404
 from django.contrib.auth import views as auth_views
 from .views import HomeView, DetalhesNoticiasView
+
+handler404 = views.handler404
 
 urlpatterns = [
     path('', views.index, name='index'),
