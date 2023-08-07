@@ -5,6 +5,21 @@ from django.contrib.auth import logout
 from django.views.generic import ListView, DetailView
 from .models import Post
 
+#imports para pagination
+from django.core.paginator import Paginator
+
+def todas_noticias(request):
+  lista_noticias = Post.objects.all()
+  
+  #setup Pagination
+  noticias_por_pagina = 6
+  p = Paginator(Post.objects.all().order_by('-created_at'), noticias_por_pagina)
+  page = request.GET.get('page')
+  qtd_paginas = p.get_page(page)
+  
+  return render(request, 'pages/todas_noticias.html', 
+                {'lista_noticias' : lista_noticias,
+                 'qtd_paginas' : qtd_paginas})
 
 def abouts_us(request):
   return render(request, 'pages/about.html')

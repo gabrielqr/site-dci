@@ -4,8 +4,8 @@ from datetime import datetime, date
 from ckeditor.fields import RichTextField
 
 class Post(models.Model):
-    title = models.CharField(max_length=255)
-    resumo = models.CharField(max_length=500)
+    title = models.CharField(max_length=35)
+    resumo = models.CharField(max_length=58)
     body = RichTextField(blank=True, null=True)
     thumbnail = models.ImageField(null=False, blank= False, upload_to='images/')
     imagem_noticia = models.ImageField(null=False, blank= False, upload_to='images/')
