@@ -6,7 +6,6 @@ from landing import views as landingviews
 
 urlpatterns = [
     path('', views.index, name='index'),
-    path('teste', HomeView.as_view(), name='teste'),
     path('todas_noticias', landingviews.todas_noticias, name="todas_noticias"),
     path('noticias/<int:pk>', DetalhesNoticiasView.as_view(), name="detalhes_noticias"),
     path('about-us/', views.abouts_us, name='about_us'),
