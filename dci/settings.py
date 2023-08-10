@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'theme_pixel',
     'django.contrib.humanize',
     'ckeditor',
+    'storages',
 ]
 
 MIDDLEWARE = [
@@ -124,7 +125,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 MEDIA_URL = 'media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage'
@@ -155,3 +156,14 @@ CKEDITOR_CONFIGS = {
         ]
     }
 }
+
+# setup dropbox
+if DEBUG == False:
+    STORAGES = {"default": {"BACKEND": "storages.backends.dropbox.DropboxStorage"}}
+    DROPBOX_OAUTH2_TOKEN = os.environ.get('DROPBOX_ACESS_TOKEN') 
+    DROPBOX_APP_KEY = os.environ.get('DROPBOX_APP_KEY')
+    DROPBOX_APP_SECRET = os.environ.get('DROPBOX_APP_SECRET')
+    DROPBOX_OAUTH2_REFRESH_TOKEN = os.environ.get('DROPBOX_REFRESH_TOKEN')
+else:
+    from secret_keys import DROPBOX_OAUTH2_TOKEN, DROPBOX_APP_KEY, DROPBOX_APP_SECRET, DROPBOX_OAUTH2_REFRESH_TOKEN
+    DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
