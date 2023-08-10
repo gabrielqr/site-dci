@@ -61,3 +61,6 @@ staticfiles/
 landing/templates/pages/index copy.html
 
 migrations/
+
+#secret keys
+secret_keys.py
