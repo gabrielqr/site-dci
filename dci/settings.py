@@ -159,7 +159,7 @@ CKEDITOR_CONFIGS = {
 
 # setup dropbox
 if DEBUG == False:
-    STORAGES = {"default": {"BACKEND": "storages.backends.dropbox.DropboxStorage"}}
+    DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
     DROPBOX_OAUTH2_TOKEN = os.environ.get('DROPBOX_ACESS_TOKEN') 
     DROPBOX_APP_KEY = os.environ.get('DROPBOX_APP_KEY')
     DROPBOX_APP_SECRET = os.environ.get('DROPBOX_APP_SECRET')
