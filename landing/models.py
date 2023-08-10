@@ -7,8 +7,8 @@ class Post(models.Model):
     title = models.CharField(max_length=35)
     resumo = models.CharField(max_length=58)
     body = RichTextField(blank=True, null=True)
-    thumbnail = models.ImageField(null=False, blank= False, upload_to='images/')
-    imagem_noticia = models.ImageField(null=False, blank= False, upload_to='images/')
+    thumbnail = models.ImageField(null=False, blank= False, upload_to='posts/')
+    imagem_noticia = models.ImageField(null=False, blank= False, upload_to='posts/')
     created_at = models.DateTimeField(auto_now_add=True)
     publicar = models.BooleanField(default=False)
     
@@ -27,3 +27,11 @@ class MensagemContato(models.Model):
     
     def get_queryset(self):
         return super().get_queryset().filter(user_id=self.request.user.id)
+
+class Carrossel(models.Model):
+    title = models.CharField(max_length=50)
+    imagem_carrosel = models.ImageField(null=False, blank=False, upload_to='carrossel/')
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    def __str__(self):
+        return self.title

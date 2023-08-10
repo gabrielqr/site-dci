@@ -157,13 +157,14 @@ CKEDITOR_CONFIGS = {
     }
 }
 
-# setup dropbox
+# setup dropbox - se estiver rodando no local ele vai salvar no local
 if DEBUG == False:
     DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
     DROPBOX_OAUTH2_TOKEN = os.environ.get('DROPBOX_ACESS_TOKEN') 
     DROPBOX_APP_KEY = os.environ.get('DROPBOX_APP_KEY')
     DROPBOX_APP_SECRET = os.environ.get('DROPBOX_APP_SECRET')
     DROPBOX_OAUTH2_REFRESH_TOKEN = os.environ.get('DROPBOX_REFRESH_TOKEN')
-else:
-    from secret_keys import DROPBOX_OAUTH2_TOKEN, DROPBOX_APP_KEY, DROPBOX_APP_SECRET, DROPBOX_OAUTH2_REFRESH_TOKEN
-    DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
+
+# comando para salvar no dropbox via local
+# from secret_keys import DROPBOX_OAUTH2_TOKEN, DROPBOX_APP_KEY, DROPBOX_APP_SECRET, DROPBOX_OAUTH2_REFRESH_TOKEN
+# DEFAULT_FILE_STORAGE = 'storages.backends.dropbox.DropBoxStorage'
