@@ -382,3 +382,30 @@
     background-image: linear-gradient(80deg, rgba(189, 187, 73, 0.1), transparent 50%);
   }
 }
+
+.custom-carousel {
+  margin: 0 auto; /* Centralize horizontalmente */
+}
+
+.carousel{
+  max-height: 400px;
+}
+
+.carousel-inner img{
+  max-height: 400px;
+  object-fit: fill;
+}
+
+.carousel-container {
+  max-height: 400px; /* Defina a altura máxima desejada */
+  overflow: hidden; /* Para evitar que o conteúdo transborde a altura máxima */
+}
+
+.custom-carousel-caption {
+  position: absolute;
+  right: 15%;
+  bottom: 40%;
+  left: 15%;
+  color: #fff;
+  text-align: center;
+}

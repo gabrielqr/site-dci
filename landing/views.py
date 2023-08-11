@@ -6,7 +6,7 @@ from theme_pixel.forms import RegistrationForm, UserLoginForm, UserPasswordReset
 from django.contrib.auth import logout
 from django.views.generic import ListView, DetailView
 from django.contrib import messages
-from .models import Post, MensagemContato
+from .models import Post, MensagemContato, Carrossel
 import smtplib
 
 
@@ -156,6 +156,15 @@ def index(request):
     }
 
     return render(request, 'pages/index.html', context)
+  
+def carrossel(request):
+  fotos_lista = Carrossel.objects.all().order_by('-created_at')
+  
+  context = {
+    'fotos_lista': fotos_lista,
+  }
+  
+  return render(request, 'components/_bootstrap-carousels.html', context)
 
 # essa homeview nao eh mais necessaria
 # class HomeView(ListView):
