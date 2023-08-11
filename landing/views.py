@@ -50,6 +50,14 @@ def handler404(request, exception):
 def blank_page(request):
   return render(request, 'pages/blank.html')
 
+def search(request):
+  if request.method == "POST":
+    searched = request.POST.get('searched')
+    postagens = Post.objects.filter(title__contains=searched)
+    return render(request, 'pages/search.html', {'searched':searched, 'postagens':postagens})
+  else:
+    return render(request, 'pages/search', {})
+
 
 # Authentication
 class UserLoginView(LoginView):
