@@ -118,8 +118,8 @@
           <div class="d-flex align-items-center">              
             <form class="d-flex" method=POST action="{% url 'search' %}">
                 {% csrf_token %}
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-dark" type="submit">Search</button>
+                <input class="form-control me-2" type="search" placeholder="Buscando algo?" aria-label="Buscar" name="searched">
+                <button class="btn btn-outline-dark" type="submit">Buscar</button>
               </form>
               </button>
           </div>
