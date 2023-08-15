@@ -1,3 +1,4 @@
+/* cards animados do index */
 .card-link {
   display: block;
   color: inherit;
@@ -98,7 +99,7 @@
 }
 
 
-/* Cards */
+/* Cards do "todas as noticias" */
 .postcard {
   flex-wrap: wrap;
   display: flex;
@@ -383,10 +384,7 @@
   }
 }
 
-.custom-carousel {
-  margin: 0 auto; /* Centralize horizontalmente */
-}
-
+/* carrosel configs de tamanho */
 .carousel{
   max-height: 400px;
 }
@@ -401,6 +399,7 @@
   overflow: hidden; /* Para evitar que o conteúdo transborde a altura máxima */
 }
 
+/* legenda do carrossel */
 .custom-carousel-caption {
   position: absolute;
   right: 15%;
@@ -419,17 +418,19 @@
   background: -webkit-linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
 
   /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-  /* background: linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));*/
-  background: linear-gradient(to right, rgba(255, 247, 173, 0.8), rgba(255, 169, 249, 0.8), rgba(169, 255, 191, 0.8), rgba(169, 227, 255, 0.8), rgba(253, 148, 148, 0.8));
+  background: linear-gradient(to right, rgba(106, 17, 203, 0.9), rgba(37, 117, 252, 0.9));
+  /* background: linear-gradient(to right, rgba(255, 247, 173, 0.8), rgba(255, 169, 249, 0.8), rgba(169, 255, 191, 0.8), rgba(169, 227, 255, 0.8), rgba(253, 148, 148, 0.8));*/
 
   color: black;
 }
 
+/* icones direita e esquerda do carrosel */
 .custom-carousel-control-prev-icon,
 .custom-carousel-control-next-icon {
     font-size: 2rem; /* Altere o tamanho conforme necessário */
 }
 
+/* bolinhas do carrossel */
 .carousel .carousel-indicators button {
   width: 10px;
   height: 10px;
