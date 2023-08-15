@@ -9,6 +9,7 @@ handler404 = landingviews.handler404
 
 urlpatterns = [
     path('', landingviews.index, name='index'),
+    path('carrossel/', landingviews.carrossel, name='carrossel'),
     path('todas_noticias', landingviews.todas_noticias, name="todas_noticias"),
     path('noticias/<int:pk>', DetalhesNoticiasView.as_view(), name="detalhes_noticias"),
     path('about-us/', views.abouts_us, name='about_us'),
