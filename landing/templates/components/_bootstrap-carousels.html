@@ -11,7 +11,8 @@
         <div class="row">
             <div class="col-md-12 mx-auto carousel-container">
                     <!-- slider section -->
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                <div id="carouselExampleCaptions" class="carousel slide carousel-fade" data-bs-ride="carousel">
+                     <!-- buttons rounded -->
                     <div class="carousel-indicators">
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"
                             aria-current="true" aria-label="Slide 1"></button>
@@ -20,14 +21,16 @@
                         <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"
                             aria-label="Slide 3"></button>
                     </div>
+                    <!-- end buttons rounded -->
+                    <!-- images of slider -->
                     <div class="carousel-inner">
                         {% for imagem in carrossel%}
                         <div class="carousel-item {% if forloop.counter0 == 0 %}active{% endif %}">
-                            <img src="{{imagem.imagem_carrosel.url}}" style="height:650px;" class="testi-overly d-block w-100" alt="sliderImg">
+                            <img src="{{imagem.imagem_carrosel.url}}" style="height:650px;" class="d-block w-100" alt="sliderImg">
                             <div class="custom-carousel-caption d-none d-md-block text-center text-white">
-                                <h1 class="animate__animated">{{imagem.title}}</h1>
-                                <h3 class="animate__animated animate__zoomIn">{{imagem.subtitle}}</h3>
-                                <a href="{{imagem.link}}" class="button animate__animated animate__zoomIn mt-3 py-3 px-5 btn font-weight-bold">{{imagem.subtitle}}</a>
+                                <h1>{{imagem.title}}</h1>
+                                <h3>{{imagem.subtitle}}</h3>
+                                <a href="{{imagem.link}}" class="btn btn-primary shadow">{{imagem.subtitle}}</a>
                             </div>
                         </div>
                         {% endfor %}
@@ -38,7 +41,7 @@
                         <span class="visually-hidden">Previous</span>
                     </button>
                     <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
-                        <span class="bi bi-caret-right-fill custom-carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="fas fa-angle-right custom-carousel-control-next-icon" aria-hidden="true"></span>
                         <span class="visually-hidden">Next</span>
                     </button>
                 </div>
