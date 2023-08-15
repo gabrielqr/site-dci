@@ -29,7 +29,8 @@ class MensagemContato(models.Model):
         return super().get_queryset().filter(user_id=self.request.user.id)
 
 class Carrossel(models.Model):
-    title = models.CharField(max_length=50)
+    title = models.CharField(max_length=50, null=True)
+    subtitle = models.CharField(max_length=100, null=True)
     imagem_carrosel = models.ImageField(null=False, blank=False, upload_to='carrossel/')
     created_at = models.DateTimeField(auto_now_add=True)
     

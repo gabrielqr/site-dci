@@ -149,19 +149,25 @@ def typography(request):
 def index(request):
     object_list = Post.objects.all().order_by('-created_at')
     max_posts_to_show = 4
+    carrossel = Carrossel.objects.all().order_by('-created_at')
+    max_images_to_show = 3
 
     context = {
         'object_list': object_list,
         'max_posts_to_show': max_posts_to_show,
+        'carrossel': carrossel,
+        'max_images_to_show': max_images_to_show,
     }
 
     return render(request, 'pages/index.html', context)
   
 def carrossel(request):
   fotos_lista = Carrossel.objects.all().order_by('-created_at')
+  max_slides_to_show = 3
   
   context = {
     'fotos_lista': fotos_lista,
+    'max_slides_to_show': max_slides_to_show,
   }
   
   return render(request, 'components/_bootstrap-carousels.html', context)
