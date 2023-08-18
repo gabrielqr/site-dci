@@ -36,3 +36,17 @@ class Carrossel(models.Model):
     
     def __str__(self):
         return self.title
+
+class Projeto(models.Model):
+    title = models.CharField(max_length=30, blank=False)
+    link = models.URLField(blank=False)
+    
+    def __str__(self):
+        return self.title
+    
+class DropdownProjeto(models.Model):
+    title = models.CharField(max_length=30, blank=False)
+    link = models.URLField(blank=False)
+    
+    def __str__(self):
+        return self.title

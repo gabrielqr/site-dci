@@ -1,41 +1,46 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        {% load static %}
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    </head>
+    <body>
+{% block content %}
 <!-- Section -->
-<div class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <!-- Nav Wrapper -->
-                            <div class="nav-wrapper position-relative">
-                                <ul class="nav nav-pills nav-fill flex-column flex-sm-row">
-                                    <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0 active" data-bs-toggle="tab" href="#">Con ICC</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0" data-bs-toggle="tab" href="#">PETIC</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0" data-bs-toggle="tab" href="#">Divulga+</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0" data-bs-toggle="tab" href="#">CInter</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0" data-bs-toggle="tab" href="#">Divulgação Científica</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0" data-bs-toggle="tab" href="#">MATECA FAMGN</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0" data-bs-toggle="tab" href="#">CAMALEÃO EM CENA</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0" data-bs-toggle="tab" href="#">DCI na Escola</a>
-                                    </li>
-                                    <li class="nav-item">
-                                        <a class="nav-link mb-sm-3 mb-md-0" data-bs-toggle="tab" href="#">Outras Produções</a>
-                                    </li>
-                                </ul>
-                            </div>
-            <!-- End of Nav Wrapper -->
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <!-- navs -->
+                <div class="nav-wrapper position-relative">
+                    <ul class="nav nav-pills nav-fill flex-column flex-sm-row">   
+                    {% for nav in nav_links %}
+                        <li class="nav-item">
+                            <a class="nav-link mb-sm-3 mb-md-0" href="{{ nav.link }}">{{ nav.title}}</a>
+                        </li>
+                    {% endfor %}
+                    <!-- dropdown -->
+                    <div class="dropdown">
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Outros Projetos
+                            </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                {% for projeto in outras_producoes %}
+                                <li><a class="dropdown-item" href="{{ projeto.link }}">{{ projeto.title }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </li>
+                    </div>
+                </ul>
+            </div>
         </div>
     </div>
-</div>
 <!-- End of Section -->
+{% endblock content %}
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+crossorigin="anonymous"></script>
+</body>
+</html>
