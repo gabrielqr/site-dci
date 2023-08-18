@@ -12,6 +12,7 @@
     <div class="container">
         <div class="row">
             <div class="col-12">
+                <!-- navs -->
                 <div class="nav-wrapper position-relative">
                     <ul class="nav nav-pills nav-fill flex-column flex-sm-row">   
                     {% for nav in nav_links %}
@@ -19,14 +20,16 @@
                             <a class="nav-link mb-sm-3 mb-md-0" href="{{ nav.link }}">{{ nav.title}}</a>
                         </li>
                     {% endfor %}
+                    <!-- dropdown -->
                     <div class="dropdown">
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Outros projetos
+                                Outros Projetos
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                <li><a class="dropdown-item" href="#">Action</a></li>
-                                <li><a class="dropdown-item" href="#">Another action</a></li>
+                                {% for projeto in outras_producoes %}
+                                <li><a class="dropdown-item" href="{{ projeto.link }}">{{ projeto.title }}</a></li>
+                                {% endfor %}
                             </ul>
                         </li>
                     </div>

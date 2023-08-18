@@ -6,7 +6,7 @@ from theme_pixel.forms import RegistrationForm, UserLoginForm, UserPasswordReset
 from django.contrib.auth import logout
 from django.views.generic import ListView, DetailView
 from django.contrib import messages
-from .models import Post, MensagemContato, Carrossel, Navlink
+from .models import Post, MensagemContato, Carrossel, Projeto, DropdownProjeto
 import smtplib
 
 
@@ -151,7 +151,8 @@ def index(request):
     max_posts_to_show = 4
     carrossel = Carrossel.objects.all().order_by('-created_at')
     max_images_to_show = 3
-    nav_links = Navlink.objects.all().order_by('title')
+    nav_links = Projeto.objects.all().order_by('title')
+    outras_producoes = DropdownProjeto.objects.all().order_by('title')
 
     context = {
         'object_list': object_list,
@@ -159,6 +160,7 @@ def index(request):
         'carrossel': carrossel,
         'max_images_to_show': max_images_to_show,
         'nav_links': nav_links,
+        'outras_producoes': outras_producoes,
     }
 
     return render(request, 'pages/index.html', context)
