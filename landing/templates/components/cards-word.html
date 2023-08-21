@@ -18,26 +18,26 @@
 <body>
     <div class="section section-sm pb-0 mb-4">
         <div class="container">
-            <div class="row ml-lg-6 mr-lg-6 mb-lg-2">
-                {% for post in object_list %}
-                    {% if forloop.counter <= max_posts_to_show and post.publicar %}
-                        <div class="col-12 col-md-6 col-lg-3 mb-5 mb-lg-3">
-                            <a href="{% url 'detalhes_noticias' post.pk %}" class="card-link">
-                                <div class="card shadow border-light">
-                                    <div class="card-body text-center">
-                                        <h1 class= "card-title" style="max-height: 100px; min-height: 100px; display: flex; flex-direction: column;">
-                                            teste 2 3 4
-                                        </h1>
-                                    </div>
+            <div class="row">
+                {% for cardicon in card_icone %}
+                    <div class="col-md-6 col-lg-3">
+                        <a href="{{ cardicon.link }}" class="card-link">
+                            <div class="card shadow border-light" style="height: 220px;"> <!-- Defina uma altura fixa aqui -->
+                                <div class="card-body">
+                                    <span class="custom-card-text" style="text-align: center;">
+                                        <i class="{{ cardicon.icon }}" style="color:#e01b24;"></i>
+                                        <br>
+                                        {{ cardicon.title }}
+                                    </span>
                                 </div>
-                            </a>
-                        </div>
+                            </div>
+                        </a>
                     </div>
-                    {% endif %}
                 {% endfor %}
             </div>
-        </div>       
-    </div>       
+        </div>
+    </div>
+    
 </body>
 </html>
 
