@@ -50,3 +50,11 @@ class DropdownProjeto(models.Model):
     
     def __str__(self):
         return self.title
+    
+class CardIcone(models.Model):
+    title = models.CharField(max_length=50, blank=False)
+    link = models.URLField(blank=False)
+    icon = models.CharField(max_length=50)
+    
+    def __str__(self):
+        return self.title
