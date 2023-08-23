@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import User
 from datetime import datetime, date
-from ckeditor.fields import RichTextField
+from wagtail.models import Page
+from wagtail.fields import RichTextField
+from wagtail.admin.panels import FieldPanel
 
 class Post(models.Model):
     title = models.CharField(max_length=35)
@@ -58,3 +60,10 @@ class CardIcone(models.Model):
     
     def __str__(self):
         return self.title
+    
+class HomePage(Page):
+    body = RichTextField(blank=True)
+
+    content_panels = Page.content_panels + [
+        FieldPanel('body'),
+    ]

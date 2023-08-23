@@ -46,6 +46,19 @@ INSTALLED_APPS = [
     'django.contrib.humanize',
     'ckeditor',
     'storages',
+    'wagtail.contrib.forms',
+    'wagtail.contrib.redirects',
+    'wagtail.embeds',
+    'wagtail.sites',
+    'wagtail.users',
+    'wagtail.snippets',
+    'wagtail.documents',
+    'wagtail.images',
+    'wagtail.search',
+    'wagtail.admin',
+    'wagtail',
+    'modelcluster',
+    'taggit',
 ]
 
 MIDDLEWARE = [
@@ -57,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'wagtail.contrib.redirects.middleware.RedirectMiddleware',
 ]
 
 ROOT_URLCONF = 'dci.urls'
@@ -164,6 +178,10 @@ if DEBUG == False:
     DROPBOX_APP_KEY = os.environ.get('DROPBOX_APP_KEY')
     DROPBOX_APP_SECRET = os.environ.get('DROPBOX_APP_SECRET')
     DROPBOX_OAUTH2_REFRESH_TOKEN = os.environ.get('DROPBOX_REFRESH_TOKEN')
+
+WAGTAIL_SITE_NAME = 'DCI'
+WAGTAILADMIN_BASE_URL = 'http://dci.onrender.com'
+
 
 # comando para salvar no dropbox via local
 # from secret_keys import DROPBOX_OAUTH2_TOKEN, DROPBOX_APP_KEY, DROPBOX_APP_SECRET, DROPBOX_OAUTH2_REFRESH_TOKEN
